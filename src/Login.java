@@ -129,6 +129,7 @@ public class Login {
             }
         });
         JButton btnSesion = new JButton("Iniciar sesión");
+        btnSesion.setFocusPainted(false);
         btnSesion.setBounds(129, 216, 167, 23);
         btnSesion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
