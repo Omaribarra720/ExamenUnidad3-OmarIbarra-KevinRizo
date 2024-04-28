@@ -72,13 +72,14 @@ public class Tarifas {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("Tarifa Gym - World");
 		frame.setBounds(100, 100, 1075, 759);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setLocationRelativeTo(null);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 128, 255));
+		panel.setBackground(Color.decode("#7FC7D9"));
 
 		panel.setBounds(0, 0, 1060, 720);
 		frame.getContentPane().add(panel);
@@ -386,6 +387,21 @@ public class Tarifas {
                 } else {
                     // Aquí iría el código para procesar el pago
                     JOptionPane.showMessageDialog(frame, "Pago procesado exitosamente.");
+                    
+                    frame.dispose(); 
+                    
+                    
+                    EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            try {
+                                menuPrincipal window = new menuPrincipal();
+                                window.frame.setVisible(true);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                    
                 }
             }
         });

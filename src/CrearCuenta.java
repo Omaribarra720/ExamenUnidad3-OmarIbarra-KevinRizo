@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 
 public class CrearCuenta {
 
-	JFrame frame;
+		JFrame frame;
 	
 	    private JTextField nombreUsuario;
 	    private JPasswordField contraseñaUsuario;
@@ -57,13 +57,14 @@ public class CrearCuenta {
 	     * Initialize the contents of the frame.
 	     */
 	    private void initialize() {
-	        frame = new JFrame();
+	        frame = new JFrame("Crear Cuenta Gym - World");
 	        frame.setBounds(100, 100, 1075, 759);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.getContentPane().setLayout(null);
+	        frame.setLocationRelativeTo(null);
 
 	        JPanel panel = new JPanel();
-	        panel.setBackground(new Color(0, 128, 255));
+	        panel.setBackground(Color.decode("#7FC7D9"));
 
 	        panel.setBounds(0, 0, 1060, 720);
 	        frame.getContentPane().add(panel);
@@ -146,7 +147,7 @@ public class CrearCuenta {
 	                        apellidosUsuario.getText().equals("Apellido(s)") || 
 	                        nombredeUsuario.getText().isEmpty() || 
 	                        nombredeUsuario.getText().equals("Nombre de usuario") || 
-	                        contraseña.isEmpty() || contraseña.equals("Contraseña")||
+	                        contraseña.isEmpty() || contraseña.equals("Contraseña2")||
 	                        contraseña2.isEmpty() || contraseña2.equals("Contraseña")
 	                       ) {
 	                        
@@ -154,7 +155,18 @@ public class CrearCuenta {
 	                    }
 	                else {
 	                	 JOptionPane.showMessageDialog(frame,"Se ha creado su cuenta");
-	                	
+	                	 frame.dispose();
+	                	 
+	                	 EventQueue.invokeLater(new Runnable() {
+	                         public void run() {
+	                             try {
+	                                 Login window = new Login();
+	                                 window.frame.setVisible(true);
+	                             } catch (Exception e) {
+	                                 e.printStackTrace();
+	                             }
+	                         }
+	                     });
 	                }
 	            }
 	        });
@@ -301,9 +313,5 @@ public class CrearCuenta {
 	            }
 	        });
 	        panel_1.add(contraseñaConfirmar);
-	        
-	       
-	        
-	        
 	    }
 }
