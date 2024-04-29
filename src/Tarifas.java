@@ -33,7 +33,7 @@ import java.awt.*;
 
 public class Tarifas {
 
-	JFrame frame;
+	public JFrame frame;
 	private JTable table_1;
 	private JTextField fieldTarjeta;
 	private JTextField fieldCodigo;
