@@ -2,12 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import java.awt.event.MouseAdapter;
 public class Login {
 
-    private JFrame frame;
+    public JFrame frame;
     private JTextField nombreUser;
     private JPasswordField contraseñaUsuario;
     private JTextField textField;
@@ -39,38 +40,34 @@ public class Login {
      * Initialize the contents of the frame.
      */
     private void initialize() {
-        frame = new JFrame();
+        frame = new JFrame("GYM WORLD");
         frame.setBounds(100, 100, 1075, 759);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
+        frame.setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
-        panel.setBackground(new Color(0, 128, 255));
+        panel.setBackground(Color.decode("#7FC7D9"));
 
         panel.setBounds(0, 0, 1060, 720);
         frame.getContentPane().add(panel);
         panel.setLayout(null);
 
-        JPanel panel_1 = new JPanel();
-        panel_1.setBackground(new Color(255, 255, 255));
-        panel_1.setBounds(90, 60, 880, 600);
-        panel.add(panel_1);
-        panel_1.setLayout(null);
-
         JLabel lblTitulo = new JLabel("Gym-World");
-        lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 22));
-        lblTitulo.setBounds(419, 47, 119, 60);
+        lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 38));
+        lblTitulo.setBounds(417, 149, 271, 81);
         lblTitulo.setFocusable(true);
-        panel_1.add(lblTitulo);
+        panel.add(lblTitulo);
 
         nombreUser = new JTextField();
         nombreUser.setText("Nombre Usuario");
         
         nombreUser.setColumns(10);
-        nombreUser.setBounds(340, 199, 250, 25);
+        nombreUser.setBounds(428, 301, 250, 25);
         nombreUser.setForeground(new Color(192, 192, 192));
 
-        // Agregar un FocusListener al JTextField nombreUser para eliminar el placeholder cuando se le dé clic
+        
         nombreUser.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -89,23 +86,23 @@ public class Login {
             }
         });
 
-        panel_1.add(nombreUser);
+        panel.add(nombreUser);
 
         
 
-        JLabel lblSubTitulo = new JLabel("Favor de registrarse para iniciar sesión");
-        lblSubTitulo.setBounds(340, 139, 250, 14);
-        panel_1.add(lblSubTitulo);
+        JLabel lblSubTitulo = new JLabel("Favor de ingresar nombre de usario y contraseña");
+        lblSubTitulo.setBounds(415, 241, 299, 37);
+        panel.add(lblSubTitulo);
 
       
         
         contraseñaUsuario = new JPasswordField();
         contraseñaUsuario.setText("Contraseña");
         contraseñaUsuario.setColumns(10);
-        contraseñaUsuario.setBounds(340, 246, 250, 25);
+        contraseñaUsuario.setBounds(428, 348, 250, 25);
         contraseñaUsuario.setForeground(new Color(192, 192, 192));
 
-        // Agregar un FocusListener al JTextField contraseñaUsuario para eliminar el placeholder cuando se le dé clic
+       
         contraseñaUsuario.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -128,7 +125,8 @@ public class Login {
             }
         });
         JButton btnSesion = new JButton("Iniciar sesión");
-        btnSesion.setBounds(419, 305, 167, 23);
+        btnSesion.setFocusPainted(false);
+        btnSesion.setBounds(428, 407, 250, 23);
         btnSesion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = nombreUser.getText();
@@ -137,32 +135,88 @@ public class Login {
 
                 if (username.isEmpty()|| username.equals("Nombre Usuario") || password.isEmpty() || password.equals("Contraseña")) {
                     JOptionPane.showMessageDialog(frame, "Por favor, ingrese usuario y contraseña.");
-                } else {
-                    // Aquí puedes agregar la lógica para iniciar sesión
+	                } else {
+	                	 frame.dispose(); 
+	                     
+	                     
+	                     EventQueue.invokeLater(new Runnable() {
+	                         public void run() {
+                             try {
+                                 menuPrincipal window = new menuPrincipal();
+                                 window.frame.setVisible(true);
+                             } catch (Exception e) {
+                                 e.printStackTrace();
+                             }
+                         }
+                     });
                 }
             }
         });
-        btnSesion.setBounds(340, 293, 250, 25);
         btnSesion.setBackground(new Color(0, 128, 255));
-        panel_1.add(btnSesion);
+        panel.add(btnSesion);
         
         
-        panel_1.add(contraseñaUsuario);
+        panel.add(contraseñaUsuario);
         
         JLabel lblCrearCuenta = new JLabel("No tengo cuenta");
-        lblCrearCuenta.setBounds(340, 358, 97, 14);
-        panel_1.add(lblCrearCuenta);
+        lblCrearCuenta.setForeground(Color.BLUE.darker());
+        lblCrearCuenta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        lblCrearCuenta.setFont(lblCrearCuenta.getFont().deriveFont(Font.BOLD | Font.ITALIC));
+        lblCrearCuenta.setBounds(428, 460, 97, 14);
+        lblCrearCuenta.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               
+                frame.dispose(); 
+                
+               
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        try {
+                            CrearCuenta window = new CrearCuenta();
+                            window.frame.setVisible(true);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                
+                
+            }
+        });
+        
+        panel.add(lblCrearCuenta);
         
         JLabel lblOlvideUnDato = new JLabel("No puedo iniciar sesión");
-        lblOlvideUnDato.setBounds(447, 358, 143, 14);
-        panel_1.add(lblOlvideUnDato);
+        lblOlvideUnDato.setBounds(535, 455, 143, 25);
+        lblOlvideUnDato.setForeground(Color.BLUE.darker());
+        lblOlvideUnDato.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        lblOlvideUnDato.setFont(lblOlvideUnDato.getFont().deriveFont(Font.BOLD | Font.ITALIC));
+        lblOlvideUnDato.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                JTextField textField = new JTextField(20);
+                JPanel panel = new JPanel();
+                panel.add(new JLabel("Ingrese el correo con el que esta registrado"));
+                panel.add(textField);
+                int result = JOptionPane.showConfirmDialog(frame, panel, "Ingresa un mensaje", JOptionPane.OK_CANCEL_OPTION);
+                if (result == JOptionPane.OK_OPTION) {
+                    JOptionPane.showMessageDialog(frame,"Se le ha mandado un correo para que haga los cambios que desea");
+                }
+            }
+        });
+        panel.add(lblOlvideUnDato);
         
-        JLabel lblCadaDiaMas = new JLabel("Cada dia mas cerca de un mejor tu");
-        lblCadaDiaMas.setBounds(340, 418, 250, 14);
-        panel_1.add(lblCadaDiaMas);
+        JLabel lblCadaDiaMas = new JLabel("La disciplina es la \r\nmadre del éxito.");
+        lblCadaDiaMas.setFont(new Font("Tahoma", Font.BOLD, 17));
+        lblCadaDiaMas.setHorizontalAlignment(SwingConstants.CENTER);
+        lblCadaDiaMas.setBounds(393, 492, 321, 62);
+        panel.add(lblCadaDiaMas);
         
-       
-        
-        
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/imagenes/imgPrincipal.jpeg")));
+        lblNewLabel.setBounds(223, 75, 626, 589);
+        panel.add(lblNewLabel);
+
     }
 }
