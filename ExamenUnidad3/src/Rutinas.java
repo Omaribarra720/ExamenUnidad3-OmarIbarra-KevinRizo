@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +10,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
@@ -17,6 +20,7 @@ public class Rutinas {
 
 	public JFrame frame;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -80,7 +84,7 @@ public class Rutinas {
 		
 		JLabel lblNewLabel_3 = new JLabel("Genere su rutina");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 40));
-		lblNewLabel_3.setBounds(327, 29, 346, 65);
+		lblNewLabel_3.setBounds(358, 26, 346, 65);
 		panel.add(lblNewLabel_3);
 		
 		JButton btnGenerar = new JButton("Generar");
@@ -165,33 +169,48 @@ public class Rutinas {
 		lblEjercicio1_1_1_1_1.setBounds(357, 448, 148, 14);
 		panel_1.add(lblEjercicio1_1_1_1_1);
 		
-		JButton btnRegresar = new JButton("Regresar");
-		btnRegresar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); 
-                
-                
-                EventQueue.invokeLater(new Runnable() {
-                    public void run() {
-                    try {
-                        menuPrincipal window = new menuPrincipal();
-                        window.frame.setVisible(true);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-			}
-		});
+		JLabel labelRegresar = new JLabel("Regresar");
 		
-		btnRegresar.setBounds(123, 511, 138, 46);
-		panel.add(btnRegresar);
+		
+		  
+		labelRegresar.setForeground(Color.BLUE.darker());
+		labelRegresar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		labelRegresar.setFont(labelRegresar.getFont().deriveFont(Font.BOLD | Font.ITALIC));
+		
+		labelRegresar.addMouseListener(new MouseAdapter() {
+	            @Override
+	            public void mouseClicked(MouseEvent e) {
+	               
+	                frame.dispose(); 
+	                
+	               
+	                EventQueue.invokeLater(new Runnable() {
+	                    public void run() {
+	                        try {
+	                            menuPrincipal window = new menuPrincipal();
+	                            window.frame.setVisible(true);
+	                        } catch (Exception e) {
+	                            e.printStackTrace();
+	                        }
+	                    }
+	                });
+	                
+	                
+	            }
+	        });
+	        labelRegresar.setBounds(170, 524, 91, 14);
+	        panel.add(labelRegresar);
+			
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setOpaque(true);
 		lblNewLabel.setBackground(new Color(255, 255, 255));
 		lblNewLabel.setBounds(61, 120, 277, 476);
 		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_4 = new JLabel("New label");
+		lblNewLabel_4.setBounds(159, 524, 46, 14);
+		panel.add(lblNewLabel_4);
 		
 		
 		btnGenerar.addActionListener(new ActionListener() {

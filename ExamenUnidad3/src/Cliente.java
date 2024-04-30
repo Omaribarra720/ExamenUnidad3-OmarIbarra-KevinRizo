@@ -1,28 +1,20 @@
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Calendar;
-
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.JTable;
-import javax.swing.JList;
 
 import javax.swing.*;
 import javax.swing.text.AttributeSet;
@@ -35,7 +27,9 @@ import java.awt.*;
 public class Cliente {
 
 	public JFrame frame;
-	private JTable table_1;
+	public String nombreUsuario ="Chintuma12",tel ="61217014";
+	
+	
 
 	/**
 	 * Launch the application.
@@ -86,8 +80,9 @@ public class Cliente {
 		panel_1.setLayout(null);
 
 		JLabel lblTitulo = new JLabel("Gym-World");
-		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblTitulo.setBounds(453, 11, 119, 27);
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 27));
+		lblTitulo.setBounds(410, 11, 208, 27);
 		lblTitulo.setFocusable(true);
 		panel_1.add(lblTitulo);
 
@@ -99,7 +94,7 @@ public class Cliente {
 	        panel_1.add(panel_2);
 	        panel_2.setLayout(null);
 	        
-	        JLabel lblNewLabel = new JLabel("Infromación personal del cliente");
+	        JLabel lblNewLabel = new JLabel("Información personal del cliente");
 	        lblNewLabel.setOpaque(true);
 	        lblNewLabel.setBackground(new Color(0, 128, 255));
 	        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -108,37 +103,39 @@ public class Cliente {
 	        panel_2.add(lblNewLabel);
 	        
 	        JLabel lblNewLabel_1 = new JLabel("Nombre");
+	        
 	        lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	        lblNewLabel_1.setBounds(86, 71, 90, 24);
+	        lblNewLabel_1.setBounds(99, 139, 90, 24);
 	        panel_2.add(lblNewLabel_1);
 	        
 	        JLabel lblNewLabel_1_1 = new JLabel("Alejandro Chintum Ramirez");
 	        lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-	        lblNewLabel_1_1.setBounds(286, 71, 204, 24);
+	        lblNewLabel_1_1.setBounds(299, 139, 204, 24);
 	        panel_2.add(lblNewLabel_1_1);
 	        
 	        JLabel lblNewLabel_1_2 = new JLabel("Nombre de usuario");
 	        lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	        lblNewLabel_1_2.setBounds(86, 117, 128, 24);
+	        lblNewLabel_1_2.setBounds(99, 185, 128, 24);
 	        panel_2.add(lblNewLabel_1_2);
 	        
 	        JLabel lbl11 = new JLabel("Fecha de nacimiento");
 	        lbl11.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	        lbl11.setBounds(86, 165, 128, 24);
+	        lbl11.setBounds(99, 233, 128, 24);
 	        panel_2.add(lbl11);
 	        
 	        JLabel lblNewLabel_1_2_1_1 = new JLabel("Télefono");
 	        lblNewLabel_1_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	        lblNewLabel_1_2_1_1.setBounds(86, 209, 128, 24);
+	        lblNewLabel_1_2_1_1.setBounds(99, 277, 128, 24);
 	        panel_2.add(lblNewLabel_1_2_1_1);
 	        
 	        JLabel lblNewLabel_1_2_1_2 = new JLabel("Correo Eléctronico");
 	        lblNewLabel_1_2_1_2.setFont(new Font("Tahoma", Font.PLAIN, 13));
-	        lblNewLabel_1_2_1_2.setBounds(86, 249, 128, 30);
+	        lblNewLabel_1_2_1_2.setBounds(99, 317, 128, 30);
 	        panel_2.add(lblNewLabel_1_2_1_2);
 	        
-	        JLabel lblNewLabel_2 = new JLabel("Label foto");
-	        lblNewLabel_2.setBounds(682, 83, 183, 148);
+	        JLabel lblNewLabel_2 = new JLabel("");
+	        lblNewLabel_2.setIcon(new ImageIcon(Cliente.class.getResource("/imagenes/imgCliente (1).png")));
+	        lblNewLabel_2.setBounds(695, 139, 174, 148);
 	        panel_2.add(lblNewLabel_2);
 	       
 	        
@@ -146,20 +143,23 @@ public class Cliente {
 	        
 	     
 	        
-	        JLabel lblNewLabel_1_1_4 = new JLabel("Alejandro Chintum Ramirez");
+	        JLabel lblNewLabel_1_1_4 = new JLabel("ramirez12@gmail.com");
 	        lblNewLabel_1_1_4.setFont(new Font("Tahoma", Font.BOLD, 13));
-	        lblNewLabel_1_1_4.setBounds(286, 252, 204, 24);
+	        lblNewLabel_1_1_4.setBounds(299, 320, 204, 24);
 	        panel_2.add(lblNewLabel_1_1_4);
 	        
 	        
-	        JLabel lblnombredeUsuario = new JLabel("Alejandro Chintum Ramirez");
+	        JLabel lblnombredeUsuario = new JLabel(nombreUsuario);
 	        lblnombredeUsuario.setFont(new Font("Tahoma", Font.BOLD, 13));
-	        lblnombredeUsuario.setBounds(286, 117, 204, 24);
+	        lblnombredeUsuario.setBounds(299, 185, 204, 24);
 	        panel_2.add(lblnombredeUsuario);
 	        
-	        JLabel lblnCambiarnombreUsuario = new JLabel("Cambiar");
-	        lblnCambiarnombreUsuario.setBounds(497, 118, 200, 24);
+	      
+	        
+	        JLabel lblnCambiarnombreUsuario = new JLabel("Editar");
+	        lblnCambiarnombreUsuario.setBounds(510, 186, 99, 24);
 	        lblnCambiarnombreUsuario.setForeground(Color.BLUE);
+	        lblnCambiarnombreUsuario.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        panel_2.add(lblnCambiarnombreUsuario);
 	        
 	       
@@ -168,7 +168,8 @@ public class Cliente {
 	            public void mouseClicked(MouseEvent e) {
 	                String nuevoNombre = JOptionPane.showInputDialog(frame, "Ingrese el nuevo nombre de usuario:");
 	                if (nuevoNombre != null && !nuevoNombre.isEmpty()) {
-	                    lblnombredeUsuario.setText(nuevoNombre);
+	                    nombreUsuario=nuevoNombre;
+	                    lblnombredeUsuario.setText(nombreUsuario);
 	                } else {
 	                    JOptionPane.showMessageDialog(frame, "Por favor ingrese un nombre válido.");
 	                }
@@ -178,12 +179,12 @@ public class Cliente {
 	        
 	        JLabel lblNacimiento = new JLabel("--/--/----");
 	        lblNacimiento.setFont(new Font("Tahoma", Font.BOLD, 13));
-	        lblNacimiento.setBounds(286, 171, 123, 24);
+	        lblNacimiento.setBounds(299, 239, 123, 24);
 	        panel_2.add(lblNacimiento);
 	        
-	        JLabel lblnCambiarNacimiento = new JLabel("Cambiar");
+	        JLabel lblnCambiarNacimiento = new JLabel("Editar");
 	        lblnCambiarNacimiento.setForeground(Color.BLUE);
-	        lblnCambiarNacimiento.setBounds(497, 171, 200, 24);
+	        lblnCambiarNacimiento.setBounds(510, 239, 81, 24);
 	        lblnCambiarNacimiento.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        panel_2.add(lblnCambiarNacimiento);
 	        
@@ -226,9 +227,9 @@ public class Cliente {
 	            }
 	        });
 	        
-	        JLabel lblTelefono = new JLabel("6121701714");
+	        JLabel lblTelefono = new JLabel(tel);
 	        lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 13));
-	        lblTelefono.setBounds(319, 217, 90, 24);
+	        lblTelefono.setBounds(332, 285, 90, 24);
 	        panel_2.add(lblTelefono);
 	        
 	        
@@ -256,19 +257,42 @@ public class Cliente {
 	        	}
 	        });
 	        
-	        btnEliminarCuenta.setBackground(new Color(255, 0, 0));
-	        btnEliminarCuenta.setBounds(439, 406, 139, 23);
+	        btnEliminarCuenta.setBackground(new Color(255, 128, 128));
+	        btnEliminarCuenta.setBounds(540, 483, 139, 23);
 	        panel_2.add(btnEliminarCuenta);
 	        
 	        JLabel lblTelefono_1 = new JLabel("+52");
 	        lblTelefono_1.setFont(new Font("Tahoma", Font.BOLD, 13));
-	        lblTelefono_1.setBounds(286, 217, 81, 24);
+	        lblTelefono_1.setBounds(299, 285, 81, 24);
 	        panel_2.add(lblTelefono_1);
 	        
 	        
-	        JLabel lblnCambiarTelefono = new JLabel("Cambiar");
+	       
+	        JButton btnRegresar = new JButton("Regresar");
+	        btnRegresar.addActionListener(new ActionListener() {
+	        	public void actionPerformed(ActionEvent e) {
+	        		frame.dispose(); 
+	                 
+	                 
+	                 EventQueue.invokeLater(new Runnable() {
+	                     public void run() {
+	                         try {
+	                        	  menuPrincipal window = new menuPrincipal();
+	                             window.frame.setVisible(true);
+	                         } catch (Exception e) {
+	                             e.printStackTrace();
+	                         }
+	                     }
+	                 });
+	        	}
+	        });
+	        btnRegresar.setBackground(new Color(255, 255, 255));
+	        btnRegresar.setBounds(307, 483, 139, 23);
+	        panel_2.add(btnRegresar);
+	        
+	        JLabel lblnCambiarTelefono = new JLabel("Editar");
 	        lblnCambiarTelefono.setForeground(Color.BLUE);
-	        lblnCambiarTelefono.setBounds(497, 218, 200, 24);
+	        lblnCambiarTelefono.setBounds(510, 286, 99, 24);
 	        lblnCambiarTelefono.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 	        panel_2.add(lblnCambiarTelefono);
 	        
@@ -285,8 +309,8 @@ public class Cliente {
 	                
 	                int result = JOptionPane.showConfirmDialog(frame, panel, "Cambiar teléfono", JOptionPane.OK_CANCEL_OPTION);
 	                if (result == JOptionPane.OK_OPTION) {
-	                    String nuevoTelefono = textField.getText();
-	                    lblTelefono.setText(nuevoTelefono);
+	                   tel = textField.getText();
+	                    lblTelefono.setText(tel);
 	                }
 	            }
 	        });
@@ -295,6 +319,18 @@ public class Cliente {
 		
 		
 	}
+	
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+
+	public String getTel() {
+		return tel;
+	}
+
+	
+
 	static class NumberFilter extends DocumentFilter {
         @Override
         public void insertString(DocumentFilter.FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
@@ -317,5 +353,7 @@ public class Cliente {
                 super.replace(fb, offset, length, string, attr);
             }
         }
+       
     }
+	
 }

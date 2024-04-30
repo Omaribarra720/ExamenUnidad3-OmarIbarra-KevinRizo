@@ -11,8 +11,9 @@ public class Login {
     public JFrame frame;
     private JTextField nombreUser;
     private JPasswordField contraseñaUsuario;
-    private JTextField textField;
+   
 
+    
     /**
      * Launch the application.
      */
@@ -25,6 +26,7 @@ public class Login {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                
             }
         });
     }
@@ -40,7 +42,7 @@ public class Login {
      * Initialize the contents of the frame.
      */
     private void initialize() {
-        frame = new JFrame("GYM WORLD");
+        frame = new JFrame("Login Gym-World");
         frame.setBounds(100, 100, 1075, 759);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
@@ -136,6 +138,7 @@ public class Login {
                 if (username.isEmpty()|| username.equals("Nombre Usuario") || password.isEmpty() || password.equals("Contraseña")) {
                     JOptionPane.showMessageDialog(frame, "Por favor, ingrese usuario y contraseña.");
 	                } else {
+	                	
 	                	 frame.dispose(); 
 	                     
 	                     
@@ -199,9 +202,9 @@ public class Login {
                 JPanel panel = new JPanel();
                 panel.add(new JLabel("Ingrese el correo con el que esta registrado"));
                 panel.add(textField);
-                int result = JOptionPane.showConfirmDialog(frame, panel, "Ingresa un mensaje", JOptionPane.OK_CANCEL_OPTION);
+                int result = JOptionPane.showConfirmDialog(frame, panel, "", JOptionPane.OK_CANCEL_OPTION);
                 if (result == JOptionPane.OK_OPTION) {
-                    JOptionPane.showMessageDialog(frame,"Se le ha mandado un correo para que haga los cambios que desea");
+                    JOptionPane.showMessageDialog(frame,"Se le ha mandado un correo para que pueda restablecer sus datos:");
                 }
             }
         });

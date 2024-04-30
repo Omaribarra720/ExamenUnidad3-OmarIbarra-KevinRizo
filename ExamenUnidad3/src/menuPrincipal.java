@@ -83,16 +83,17 @@ public class menuPrincipal {
         btnClientes.setHorizontalTextPosition(SwingConstants.CENTER);
         btnClientes.setFont(new Font("Tahoma", Font.PLAIN, 27));
         btnClientes.setFocusable(false);
-        btnClientes.setBounds(89, 182, 204, 209);
+        btnClientes.setBounds(90, 182, 210, 210);
         panelClient.add(btnClientes);
         
         JButton btnChecador = new JButton("Checador");
         btnChecador.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
-        		  JOptionPane.showMessageDialog(frame, "Su visita ha sido registrada con éxito en el sistema");
+        		JOptionPane.showMessageDialog(frame, "Su visita ha sido registrada con éxito en el sistema", "Registre su visita", JOptionPane.INFORMATION_MESSAGE);
         		}
         });
+        
         
         btnChecador.setBorder(new LineBorder(new Color(0, 0, 0), 2));
         btnChecador.setIcon(new ImageIcon(menuPrincipal.class.getResource("/imagenes/imgChecador (1).png")));
@@ -101,7 +102,7 @@ public class menuPrincipal {
         btnChecador.setHorizontalTextPosition(SwingConstants.CENTER);
         btnChecador.setFont(new Font("Tahoma", Font.PLAIN, 27));
         btnChecador.setFocusable(false);
-        btnChecador.setBounds(765, 182, 204, 209);
+        btnChecador.setBounds(435, 455, 210, 210);
         panelClient.add(btnChecador);
         
         JButton btnRegresar = new JButton("Cerrar Sesión");
@@ -132,19 +133,19 @@ public class menuPrincipal {
         btnRegresar.setHorizontalTextPosition(SwingConstants.CENTER);
         btnRegresar.setFont(new Font("Tahoma", Font.PLAIN, 27));
         btnRegresar.setFocusable(false);
-        btnRegresar.setBounds(765, 458, 204, 209);
+        btnRegresar.setBounds(765, 458, 210, 210);
         panelClient.add(btnRegresar);
         
         JLabel lblNewLabel = new JLabel("Menú Principal");
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 38));
-        lblNewLabel.setBounds(389, 37, 297, 45);
+        lblNewLabel.setBounds(386, 36, 297, 45);
         panelClient.add(lblNewLabel);
         
-        JLabel lblGymWorld = new JLabel("Gym - World");
+        JLabel lblGymWorld = new JLabel("Gym-World");
         lblGymWorld.setHorizontalAlignment(SwingConstants.CENTER);
         lblGymWorld.setFont(new Font("Tahoma", Font.BOLD, 38));
-        lblGymWorld.setBounds(409, 80, 246, 45);
+        lblGymWorld.setBounds(409, 81, 246, 45);
         panelClient.add(lblGymWorld);
         
         JButton btnTarifa = new JButton("Tarifa");
@@ -174,7 +175,7 @@ public class menuPrincipal {
         btnTarifa.setHorizontalTextPosition(SwingConstants.CENTER);
         btnTarifa.setFont(new Font("Tahoma", Font.PLAIN, 27));
         btnTarifa.setFocusable(false);
-        btnTarifa.setBounds(437, 182, 204, 209);
+        btnTarifa.setBounds(90, 455, 210, 210);
         panelClient.add(btnTarifa);
         
         JButton btnEntrenadores = new JButton("Entrenadores");
@@ -185,7 +186,25 @@ public class menuPrincipal {
         btnEntrenadores.setHorizontalTextPosition(SwingConstants.CENTER);
         btnEntrenadores.setFont(new Font("Tahoma", Font.PLAIN, 27));
         btnEntrenadores.setFocusable(false);
-        btnEntrenadores.setBounds(437, 458, 204, 209);
+        btnEntrenadores.setBounds(765, 182, 210, 210);
+        btnEntrenadores.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		 frame.dispose(); 
+                 
+                 
+                 EventQueue.invokeLater(new Runnable() {
+                     public void run() {
+                         try {
+                             Entrenadores window = new Entrenadores();
+                             window.frame.setVisible(true);
+                         } catch (Exception e) {
+                             e.printStackTrace();
+                         }
+                     }
+                 });
+        	}
+        });
+        
         panelClient.add(btnEntrenadores);
         
         JButton btnRutinas = new JButton("Rutinas");
@@ -213,7 +232,7 @@ public class menuPrincipal {
         btnRutinas.setHorizontalTextPosition(SwingConstants.CENTER);
         btnRutinas.setFont(new Font("Tahoma", Font.PLAIN, 27));
         btnRutinas.setFocusable(false);
-        btnRutinas.setBounds(89, 458, 204, 209);
+        btnRutinas.setBounds(435, 182, 210, 210);
         panelClient.add(btnRutinas);
         
         JLabel lblNewLabel_1 = new JLabel("");

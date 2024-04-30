@@ -1,34 +1,27 @@
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTable;
-import javax.swing.JList;
-
 import javax.swing.*;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
-import java.awt.*;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Tarifas {
@@ -43,6 +36,7 @@ public class Tarifas {
 	private JTextField fieldTotal;
 	private JTextField fieldPostal;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -84,7 +78,11 @@ public class Tarifas {
 		panel.setBounds(0, 0, 1060, 720);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		
+		
 
+		Cliente cliente = new Cliente();
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setBounds(20, 20, 1020, 680);
@@ -92,102 +90,148 @@ public class Tarifas {
 		panel_1.setLayout(null);
 
 		JLabel lblTitulo = new JLabel("Gym-World");
-		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		lblTitulo.setBounds(463, 0, 119, 60);
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 28));
+		lblTitulo.setBounds(424, 0, 181, 60);
 		lblTitulo.setFocusable(true);
 		panel_1.add(lblTitulo);
 
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(10, 71, 470, 470);
+		panel_2.setBounds(44, 116, 395, 382);
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Teléfono vinculado");
+		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setOpaque(true);
-		lblNewLabel.setBackground(new Color(128, 255, 255));
-		lblNewLabel.setBounds(71, 52, 127, 25);
+		lblNewLabel.setBackground(Color.decode("#7FC7D9"));
+		lblNewLabel.setBounds(64, 77, 127, 25);
 		panel_2.add(lblNewLabel);
 
 
 
 
-
-		JLabel lblSubTitulo = new JLabel("LLene los datos");
+		
+		//telefono
+		JLabel lblSubTitulo = new JLabel("+52 "+cliente.getTel());
+		
+		lblSubTitulo.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblSubTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubTitulo.setOpaque(true);
 		lblSubTitulo.setBackground(new Color(255, 255, 255));
-		lblSubTitulo.setBounds(210, 52, 112, 25);
+		lblSubTitulo.setBounds(203, 77, 127, 25);
 		panel_2.add(lblSubTitulo);
 
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
+		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setOpaque(true);
-		lblNewLabel_1.setBackground(new Color(128, 255, 255));
-		lblNewLabel_1.setBounds(71, 96, 127, 25);
+		lblNewLabel_1.setBackground(Color.decode("#7FC7D9"));
+		lblNewLabel_1.setBounds(64, 176, 127, 25);
 		panel_2.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Nombre Usuario");
+		lblNewLabel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setOpaque(true);
-		lblNewLabel_2.setBackground(new Color(128, 255, 255));
-		lblNewLabel_2.setBounds(71, 132, 127, 25);
+		lblNewLabel_2.setBackground(Color.decode("#7FC7D9"));
+		lblNewLabel_2.setBounds(64, 126, 127, 25);
 		panel_2.add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("Inicio de membresía actual");
+		JLabel lblNewLabel_3 = new JLabel("Inicio de membresía");
+		lblNewLabel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setOpaque(true);
-		lblNewLabel_3.setBackground(new Color(128, 255, 255));
-		lblNewLabel_3.setBounds(71, 168, 127, 25);
+		lblNewLabel_3.setBackground(Color.decode("#7FC7D9"));
+		lblNewLabel_3.setBounds(64, 228, 127, 25);
 		panel_2.add(lblNewLabel_3);
 
-		JLabel lblSubTitulo_1 = new JLabel("LLene los datos");
+		JLabel lblSubTitulo_1 = new JLabel("Alejandro Ramirez Cota");
+		lblSubTitulo_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblSubTitulo_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubTitulo_1.setOpaque(true);
 		lblSubTitulo_1.setBackground(Color.WHITE);
-		lblSubTitulo_1.setBounds(210, 96, 112, 25);
+		lblSubTitulo_1.setBounds(201, 126, 152, 25);
 		panel_2.add(lblSubTitulo_1);
 
-		JLabel lblSubTitulo_2 = new JLabel("LLene los datos");
+		JLabel lblSubTitulo_2 = new JLabel(cliente.getNombreUsuario());
+		lblSubTitulo_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblSubTitulo_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubTitulo_2.setOpaque(true);
 		lblSubTitulo_2.setBackground(Color.WHITE);
-		lblSubTitulo_2.setBounds(210, 137, 112, 25);
+		lblSubTitulo_2.setBounds(203, 176, 127, 25);
 		panel_2.add(lblSubTitulo_2);
 
-		JLabel lblSubTitulo_3 = new JLabel("LLene los datos");
+		JLabel lblSubTitulo_3 = new JLabel("25 de mayo del 2024");
+		lblSubTitulo_3.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblSubTitulo_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubTitulo_3.setOpaque(true);
 		lblSubTitulo_3.setBackground(Color.WHITE);
-		lblSubTitulo_3.setBounds(210, 173, 112, 25);
+		lblSubTitulo_3.setBounds(203, 228, 127, 25);
 		panel_2.add(lblSubTitulo_3);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Estado de membresía");
+		lblNewLabel_3_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3_1.setOpaque(true);
-		lblNewLabel_3_1.setBackground(new Color(128, 255, 255));
-		lblNewLabel_3_1.setBounds(71, 205, 127, 25);
+		lblNewLabel_3_1.setBackground(Color.decode("#7FC7D9"));
+		lblNewLabel_3_1.setBounds(64, 322, 127, 25);
 		panel_2.add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("Membresia vence el");
+		lblNewLabel_3_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblNewLabel_3_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3_2.setOpaque(true);
-		lblNewLabel_3_2.setBackground(new Color(128, 255, 255));
-		lblNewLabel_3_2.setBounds(68, 241, 127, 25);
+		lblNewLabel_3_2.setBackground(Color.decode("#7FC7D9"));
+		lblNewLabel_3_2.setBounds(64, 276, 127, 25);
 		panel_2.add(lblNewLabel_3_2);
 		
-		JLabel lblTitulo_1 = new JLabel("Gym-World");
+		JLabel lblTitulo_1 = new JLabel("Datos del usuario");
 		lblTitulo_1.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblTitulo_1.setFocusable(true);
-		lblTitulo_1.setBounds(156, 11, 119, 25);
+		lblTitulo_1.setBounds(116, 11, 188, 25);
 		panel_2.add(lblTitulo_1);
+		
+		JLabel lblSubTitulo_3_1 = new JLabel("25 de junio del 2024");
+		lblSubTitulo_3_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblSubTitulo_3_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSubTitulo_3_1.setOpaque(true);
+		lblSubTitulo_3_1.setBackground(Color.WHITE);
+		lblSubTitulo_3_1.setBounds(203, 276, 127, 25);
+		panel_2.add(lblSubTitulo_3_1);
+		
+		JLabel lblSubTitulo_3_2 = new JLabel("Activa");
+		lblSubTitulo_3_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblSubTitulo_3_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSubTitulo_3_2.setOpaque(true);
+		lblSubTitulo_3_2.setBackground(new Color(128, 255, 0));
+		lblSubTitulo_3_2.setBounds(203, 322, 127, 25);
+		panel_2.add(lblSubTitulo_3_2);
 		
 		
         Object[][] data = {
-                {"usuario", "01/01/2024", "31/12/2024", "1 año", "$5900.00"},
-                {"usuario", "14/02/2024", "14/02/2025", "1 año", "$5900.00"},
-                {"usuario", "10/03/2025", "10/03/2050", "25 años", "$Un monton.00"}
+                {"Chintuma12", "01/01/2022", "31/12/2024", "1 año", "$5900.00"},
+                {"Chintuma12", "14/02/2023", "14/02/2024", "1 año", "$5900.00"},
+                {"Chintuma12", "10/03/2024", "10/04/2024", "1 mes", "$500.00"}
         };
         String[] columnNames = {"Usuario", "Inicio de membresía", "Finalización de membresía", "Duración", "Gasto"};
-
-      
-        JTable table_1 = new JTable(data, columnNames);
-
-        JScrollPane scrollPane = new JScrollPane(table_1);
-       
-        scrollPane.setBounds(10, 552, 1000, 74);
         
+        
+     
+        DefaultTableModel model = new DefaultTableModel(data, columnNames) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; 
+            }
+        };
+
+   
+        JTable table_1 = new JTable(model);
+        JScrollPane scrollPane = new JScrollPane(table_1);
+        scrollPane.setBounds(10, 559, 1000, 74);
         panel_1.add(scrollPane);
+      
         
         JPanel panel_2_1 = new JPanel();
         panel_2_1.setLayout(null);
@@ -234,7 +278,7 @@ public class Tarifas {
         mesesMembresia.setBounds(33, 74, 69, 25);
         panel_2_1.add(mesesMembresia);
         
-        String[] paises = { "Argentina", "Australia", "Brasil", "Canadá", "Chile", "China", "Colombia", "España", "E.U.", "Filipinas", "Francia", "India", "Indonesia", "Irán", "Iraq", "Italia", "Japón", "Malasia", "México"};
+        String[] paises = { "--","Argentina", "Australia", "Brasil", "Canadá", "Chile", "China", "Colombia", "España", "E.U.", "Filipinas", "Francia", "India", "Indonesia", "Irán", "Iraq", "Italia", "Japón", "Malasia", "México"};
 
         JComboBox<String> comboPaises = new JComboBox<>(paises);
         comboPaises.setBackground(new Color(255, 255, 255));
@@ -296,15 +340,18 @@ public class Tarifas {
         
         fieldTarjeta = new JTextField();
         fieldTarjeta.setBounds(33, 233, 168, 25);
+        
         fieldTarjeta.setColumns(10);
-        fieldTarjeta.setDocument(new IntegerDocument());
+        fieldTarjeta.setDocument(new IntegerDocument(10));
+        
         panel_2_1.add(fieldTarjeta);
+        
        
         
         fieldCodigo = new JTextField();
         fieldCodigo.setColumns(10);
         fieldCodigo.setBounds(377, 233, 47, 25);
-        fieldCodigo.setDocument(new IntegerDocument());
+        fieldCodigo.setDocument(new IntegerDocument(3));
         panel_2_1.add(fieldCodigo);
         
         JLabel lblTitulo_1_1_1 = new JLabel("Información de facturación");
@@ -362,7 +409,7 @@ public class Tarifas {
         fieldPostal = new JTextField();
         fieldPostal.setColumns(10);
         fieldPostal.setBounds(361, 391, 63, 25);
-        fieldPostal.setDocument(new IntegerDocument());
+        fieldPostal.setDocument(new IntegerDocument(5));
         panel_2_1.add(fieldPostal);
         
         
@@ -385,7 +432,7 @@ public class Tarifas {
                     fieldPostal.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(frame, "Por favor, llene todos los campos.");
                 } else {
-                    // Aquí iría el código para procesar el pago
+                    
                     JOptionPane.showMessageDialog(frame, "Pago procesado exitosamente.");
                     
                     frame.dispose(); 
@@ -408,24 +455,72 @@ public class Tarifas {
 
        
         panel_2_1.add(btnPagar);
+        
+       
+		
+		
+		JLabel lblRegresar = new JLabel("Regresar");
+		lblRegresar.setBounds(10, 655, 70, 14);
+		
+		
+		lblRegresar.setForeground(Color.BLUE);
+		lblRegresar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblRegresar.setFont(lblRegresar.getFont().deriveFont(Font.BOLD | Font.ITALIC));
+		lblRegresar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+               
+                frame.dispose(); 
+                
+               
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        try {
+                            menuPrincipal window = new menuPrincipal();
+                            window.frame.setVisible(true);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                
+                
+            }
+        });
+		
+		panel_1.add(lblRegresar);
+		
+		
+		
+		
        
         
 	}
-	 static class IntegerDocument extends PlainDocument {
-	        @Override
-	        public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
-	            if (str == null) {
-	                return;
-	            }
+	
+	
+	public class IntegerDocument extends PlainDocument {
+	    private int maxLength;
 
-	            try {
-	                Integer.parseInt(str);
-	                super.insertString(offs, str, a);
-	            } catch (NumberFormatException e) {
-	                // Ignorar la entrada que no sea un número
-	            }
+	    public IntegerDocument(int maxLength) {
+	        super();
+	        this.maxLength = maxLength;
+	    }
+
+	    @Override
+	    public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
+	        if (str == null) {
+	            return;
+	        }
+
+	        if (getLength() + str.length() <= maxLength && isNumeric(str)) {
+	            super.insertString(offs, str, a);
 	        }
 	    }
+
+	    private boolean isNumeric(String str) {
+	        return str.chars().allMatch(Character::isDigit);
+	    }
+	}
 
 	    static class AlphaDocument extends PlainDocument {
 	        @Override

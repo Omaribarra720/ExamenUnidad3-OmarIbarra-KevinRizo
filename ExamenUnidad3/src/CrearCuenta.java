@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 
 public class CrearCuenta {
@@ -77,8 +78,9 @@ public class CrearCuenta {
 	        panel_1.setLayout(null);
 
 	        JLabel lblTitulo = new JLabel("Gym-World");
-	        lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 22));
-	        lblTitulo.setBounds(399, 47, 119, 60);
+	        lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+	        lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 33));
+	        lblTitulo.setBounds(325, 52, 265, 60);
 	        lblTitulo.setFocusable(true);
 	        panel_1.add(lblTitulo);
 
@@ -123,8 +125,10 @@ public class CrearCuenta {
 	            }
 	        });
 	        panel_1.add(lblCuenta);
-	        JLabel lblCadaDiaMas = new JLabel("Cada dia mas cerca de un mejor tu");
-	        lblCadaDiaMas.setBounds(382, 528, 250, 14);
+	        JLabel lblCadaDiaMas = new JLabel("La disciplina es la \r\nmadre del éxito.");
+	        lblCadaDiaMas.setHorizontalAlignment(SwingConstants.CENTER);
+	        lblCadaDiaMas.setFont(new Font("Tahoma", Font.BOLD, 12));
+	        lblCadaDiaMas.setBounds(351, 490, 231, 14);
 	        panel_1.add(lblCadaDiaMas);
 	        
 	              
@@ -153,20 +157,33 @@ public class CrearCuenta {
 	                        
 	                        JOptionPane.showMessageDialog(frame, "Por favor, llene todos los campos.");
 	                    }
+	               
 	                else {
-	                	 JOptionPane.showMessageDialog(frame,"Se ha creado su cuenta");
-	                	 frame.dispose();
-	                	 
-	                	 EventQueue.invokeLater(new Runnable() {
-	                         public void run() {
-	                             try {
-	                                 Login window = new Login();
-	                                 window.frame.setVisible(true);
-	                             } catch (Exception e) {
-	                                 e.printStackTrace();
-	                             }
-	                         }
-	                     });
+	                	if(!contraseña.equals(contraseña2)) {
+	                		
+	                		JOptionPane.showMessageDialog(frame, "Las contraseñas deben ser iguales", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+	                		
+	                		               		
+	                	}else {
+	                		
+	                		JOptionPane.showMessageDialog(frame, "Se han registrado sus datos, favor de darse de alta en su sucursal", "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+	    	                
+		                	 frame.dispose();
+		                	 
+		                	 EventQueue.invokeLater(new Runnable() {
+		                         public void run() {
+		                             try {
+		                                 Login window = new Login();
+		                                 window.frame.setVisible(true);
+		                             } catch (Exception e) {
+		                                 e.printStackTrace();
+		                             }
+		                         }
+		                     });
+	                		
+	                		
+	                	}
+	                	
 	                }
 	            }
 	        });
@@ -279,6 +296,7 @@ public class CrearCuenta {
 	                     contraseñaUsuario.setText("Contraseña");
 	                     contraseñaUsuario.setForeground(new Color(192, 192, 192));
 	                 } 
+	                 
 	            }
 	        });
 	        
